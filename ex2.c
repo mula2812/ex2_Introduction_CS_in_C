@@ -92,14 +92,15 @@ int main()
                 
                 printf("please enter the number of ducks:\n");
                 scanf(" %d",&taskTwoDucksNum);
-                printf("you entered %d ducks\n", taskTwoDucksNum);
-
+                
                 // until we don't get positive number
                 while(taskTwoDucksNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskTwoDucksNum);
                 }
-
+                
+                printf("you entered %d ducks\n", taskTwoDucksNum);
+                
                 // getting the quack/shout choices from the user
                 for(int i=0; i<taskTwoDucksNum; i++){
                     printf("duck %d do QUAK? 1 for yes, 0 for no\n", i+1);
