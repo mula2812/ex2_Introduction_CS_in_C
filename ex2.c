@@ -78,6 +78,12 @@ int main()
                 while(taskOneChoosingNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskOneChoosingNum);
+                    
+                    // clearing the input buffer
+                    nextChar = getchar();
+                    while (nextChar != '\n' && nextChar != EOF) {
+                        nextChar = getchar(); 
+                    }
                 }
 
                 taskOneHelpInt = taskOneChoosingNum;
@@ -114,6 +120,12 @@ int main()
                 while(taskTwoDucksNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskTwoDucksNum);
+                    
+                    // clearing the input buffer
+                    nextChar = getchar();
+                    while (nextChar != '\n' && nextChar != EOF) {
+                        nextChar = getchar(); 
+                    }
                 }
 
                 // getting the quack/shout choices from the user
@@ -123,6 +135,12 @@ int main()
                     while(userChoiceQuackOrSh!=1 && userChoiceQuackOrSh!=0){
                         printf("Invalid number, please try again\n");
                         scanf(" %d", &userChoiceQuackOrSh);
+                        
+                        // clearing the input buffer
+                        nextChar = getchar();
+                        while (nextChar != '\n' && nextChar != EOF) {
+                            nextChar = getchar(); 
+                        }
                     }
                     if(userChoiceQuackOrSh){
                         taskTwoBitsNum|=(unsigned long long)userChoiceQuackOrSh<<i; //Check this!!!!!!!!!!!!!!!!!!!!
@@ -159,6 +177,12 @@ int main()
                 while(taskThreeBaseNum<0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskThreeBaseNum);
+                    
+                    // clearing the input buffer
+                    nextChar = getchar();
+                    while (nextChar != '\n' && nextChar != EOF) {
+                        nextChar = getchar(); 
+                    }
                 }
 
                 printf("please enter the exponent\n");
@@ -168,6 +192,12 @@ int main()
                 while(taskThreeExponentNum<0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskThreeExponentNum);
+                    
+                    // clearing the input buffer
+                    nextChar = getchar();
+                    while (nextChar != '\n' && nextChar != EOF) {
+                        nextChar = getchar(); 
+                    }
                 }
 
                 // calculating the number by the power
@@ -188,6 +218,12 @@ int main()
                 while(taskFourDucksNum<0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskFourDucksNum);
+                    
+                    // clearing the input buffer
+                    nextChar = getchar();
+                    while (nextChar != '\n' && nextChar != EOF) {
+                        nextChar = getchar(); 
+                    }
                 }
                 
                 // until we have more ducks than the max in a row
@@ -244,6 +280,12 @@ int main()
                 while(taskFiveInputNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskFiveInputNum);
+                    
+                    // clearing the input buffer
+                    nextChar = getchar();
+                    while (nextChar != '\n' && nextChar != EOF) {
+                        nextChar = getchar(); 
+                    }
                 }
 
                 // resetting vars for future use
