@@ -9,9 +9,9 @@ Assignment: 2
 int main()
 {
     // VARIABLES DECLARATION
-    char userChoice = 0;
-    const int decimalValueOfCharZero = '0';
-    int userChoiceNumber=0;
+    int userChoice = 0;
+    const int decimalValueOfCharZero = 0;
+    const int decimalValueOfCharSix = 6;
     int nextChar=0;
 
     // task one vars
@@ -44,7 +44,7 @@ int main()
     // MAIN MENU LOOP
     do
     {
-        printf("Welcome to our games, please choose an option\n");
+        printf("Welcome to our games, please choose an option:\n");
         printf("1. Ducky's Unity Game\n");
         printf("2. The Memory Game\n");
         printf("3. Professor Pat's Power Calculation\n");
@@ -53,21 +53,13 @@ int main()
         printf("6. Good Night Ducks\n");
 
         
-        scanf(" %c", &userChoice);
+        scanf(" %d", &userChoice);
 
-        // until we don't get a valid char number from '0' to '9'
-        nextChar = getchar();
-        if(nextChar!= '\n' && nextChar != EOF){
-            while (nextChar != '\n' && nextChar != EOF) {
-                nextChar = getchar(); 
-            }
-            userChoice = ' '; // reset userChoice to an invalid value
+        if (userChoice <  decimalValueOfCharZero || userChoice > decimalValueOfCharSix) {
+            printf("Invalid option, please try again\n");
         }
 
-        // Transform the char value to decimal according to the value of the char 0
-        userChoiceNumber = (int)(userChoice)-decimalValueOfCharZero;
-
-        switch(userChoiceNumber)
+        switch(userChoice)
         {
             // TASK 1: Ducky's Unity Game
             case 1:
@@ -78,19 +70,13 @@ int main()
                 while(taskOneChoosingNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskOneChoosingNum);
-                    
-                    // clearing the input buffer
-                    nextChar = getchar();
-                    while (nextChar != '\n' && nextChar != EOF) {
-                        nextChar = getchar(); 
-                    }
                 }
 
                 taskOneHelpInt = taskOneChoosingNum;
                 
                 while(taskOneHelpInt>0)
                 {
-                    // Check using & if the last bit is 1 
+                    // check using & if the last bit is 1 
                     if(taskOneHelpInt & 1){
                         // ducky earned one more golden corn
                         sumOfOnesForTaskOne +=1;
@@ -120,12 +106,6 @@ int main()
                 while(taskTwoDucksNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskTwoDucksNum);
-                    
-                    // clearing the input buffer
-                    nextChar = getchar();
-                    while (nextChar != '\n' && nextChar != EOF) {
-                        nextChar = getchar(); 
-                    }
                 }
 
                 // getting the quack/shout choices from the user
@@ -135,15 +115,9 @@ int main()
                     while(userChoiceQuackOrSh!=1 && userChoiceQuackOrSh!=0){
                         printf("Invalid number, please try again\n");
                         scanf(" %d", &userChoiceQuackOrSh);
-                        
-                        // clearing the input buffer
-                        nextChar = getchar();
-                        while (nextChar != '\n' && nextChar != EOF) {
-                            nextChar = getchar(); 
-                        }
                     }
                     if(userChoiceQuackOrSh){
-                        taskTwoBitsNum|=(unsigned long long)userChoiceQuackOrSh<<i; //Check this!!!!!!!!!!!!!!!!!!!!
+                        taskTwoBitsNum|=(unsigned long long)userChoiceQuackOrSh<<i;
                     }
                 }
                                 
@@ -177,12 +151,6 @@ int main()
                 while(taskThreeBaseNum<0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskThreeBaseNum);
-                    
-                    // clearing the input buffer
-                    nextChar = getchar();
-                    while (nextChar != '\n' && nextChar != EOF) {
-                        nextChar = getchar(); 
-                    }
                 }
 
                 printf("please enter the exponent\n");
@@ -192,12 +160,6 @@ int main()
                 while(taskThreeExponentNum<0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskThreeExponentNum);
-                    
-                    // clearing the input buffer
-                    nextChar = getchar();
-                    while (nextChar != '\n' && nextChar != EOF) {
-                        nextChar = getchar(); 
-                    }
                 }
 
                 // calculating the number by the power
@@ -218,12 +180,6 @@ int main()
                 while(taskFourDucksNum<0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskFourDucksNum);
-                    
-                    // clearing the input buffer
-                    nextChar = getchar();
-                    while (nextChar != '\n' && nextChar != EOF) {
-                        nextChar = getchar(); 
-                    }
                 }
                 
                 // until we have more ducks than the max in a row
@@ -280,12 +236,6 @@ int main()
                 while(taskFiveInputNum<=0){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskFiveInputNum);
-                    
-                    // clearing the input buffer
-                    nextChar = getchar();
-                    while (nextChar != '\n' && nextChar != EOF) {
-                        nextChar = getchar(); 
-                    }
                 }
 
                 // resetting vars for future use
@@ -345,7 +295,7 @@ int main()
     }
     while (
         // condition to continue looping until user choose exsit (6)
-        userChoiceNumber != 6
+        userChoice != 6
     );
     return 0;
 }
