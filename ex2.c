@@ -10,8 +10,6 @@ int main()
 {
     // VARIABLES DECLARATION
     int userChoice = 0;
-    const int decimalValueOfCharZero = 0;
-    const int decimalValueOfCharSix = 6;
 
     // task one vars
     int taskOneChoosingNum=0;
