@@ -12,7 +12,6 @@ int main()
     int userChoice = 0;
     const int decimalValueOfCharZero = 0;
     const int decimalValueOfCharSix = 6;
-    int nextChar=0;
 
     // task one vars
     int taskOneChoosingNum=0;
@@ -52,12 +51,7 @@ int main()
         printf("5. The Mystery of the Repeated Digits\n");
         printf("6. Good Night Ducks\n");
 
-        
         scanf(" %d", &userChoice);
-
-        if (userChoice <  decimalValueOfCharZero || userChoice > decimalValueOfCharSix) {
-            printf("Invalid option, please try again\n");
-        }
 
         switch(userChoice)
         {
@@ -229,7 +223,7 @@ int main()
                 taskFiveHowManyDigitInTheInput=0;
                 taskFiveInputNum=0;
 
-                printf("please enter number:\n");
+                printf("please enter number\n");
                 scanf(" %d", &taskFiveInputNum);
                 
                 // until we don't get positive number we keep asking for input
