@@ -218,18 +218,22 @@ int main()
 
                 // print the last row with the remaining ducks
 
-                for(int i=0; i<taskFourDucksNum; i++){
-                    printf("   _\t\t");
+                // only if there are ducks left to print
+                if(taskFourDucksNum>0){
+                    for(int i=0; i<taskFourDucksNum; i++){
+                        printf("   _\t\t");
+                    }
+                    printf("\n");
+                    for(int i=0; i<taskFourDucksNum; i++){
+                        printf("__(o)>\t\t");
+                    }
+                    printf("\n");
+                    for(int i=0; i<taskFourDucksNum; i++){
+                        printf("\\___)\t\t");
+                    }
+                    printf("\n");
                 }
-                printf("\n");
-                for(int i=0; i<taskFourDucksNum; i++){
-                    printf("__(o)>\t\t");
-                }
-                printf("\n");
-                for(int i=0; i<taskFourDucksNum; i++){
-                    printf("\\___)\t\t");
-                }
-                printf("\n");
+                   
                 break;
 
             // TASK 5: The Mystery of the Repeated Digits
