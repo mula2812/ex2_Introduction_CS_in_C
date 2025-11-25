@@ -1,6 +1,5 @@
 /******************
 Name:Ilan Mulakandov
-ID:325842847
 Assignment: 2
 *******************/
 
