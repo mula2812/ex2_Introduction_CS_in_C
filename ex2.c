@@ -10,16 +10,22 @@ int main()
 {
     // VARIABLES DECLARATION
     int userChoice = 0;
+    const int bitMaskForLastBit=1;
+    const int exsitInput=6;
 
     // task one vars
     int taskOneChoosingNum=0;
     int taskOneHelpInt=0;
     int sumOfOnesForTaskOne=0;
+    const int bitShiftRightByOne=1;
 
     // task two vars
     int taskTwoDucksNum=0;
     int isQuackBit=0;
     int userChoiceQuackOrSh=0;
+    const int maxDucksThatCanBeHandled=64;
+    const int validBitInputOne=1;
+    const int validBitInputZero=0;
     unsigned long long taskTwoBitsNum=0;
 
     // task three vars
@@ -66,16 +72,17 @@ int main()
 
                 taskOneHelpInt = taskOneChoosingNum;
                 
+                // until we checked all the bits and the number becomes 0
                 while(taskOneHelpInt>0)
                 {
-                    // check using & if the last bit is 1 
-                    if(taskOneHelpInt & 1){
+                    // check using & if the last bit is 1
+                    if(taskOneHelpInt & bitMaskForLastBit){
                         // ducky earned one more golden corn
-                        sumOfOnesForTaskOne +=1;
+                        sumOfOnesForTaskOne++;
                     }
                         
                     // moving 1 bit to right for check the next bit
-                    taskOneHelpInt = taskOneHelpInt>>1;
+                    taskOneHelpInt = taskOneHelpInt>>bitShiftRightByOne;
 
                 }
                 
@@ -93,8 +100,8 @@ int main()
                 printf("please enter the number of ducks:\n");
                 scanf(" %d",&taskTwoDucksNum);
                 
-                // until we don't get positive number
-                while(taskTwoDucksNum<=0){
+                // until we don't get positive number and less than 64 we keep asking for input
+                while(taskTwoDucksNum<=0 || taskTwoDucksNum>maxDucksThatCanBeHandled){
                     printf("Invalid number, please try again\n");
                     scanf(" %d", &taskTwoDucksNum);
                 }
@@ -105,26 +112,34 @@ int main()
                 for(int i=0; i<taskTwoDucksNum; i++){
                     printf("duck %d do QUAK? 1 for yes, 0 for no\n", i+1);
                     scanf(" %d", &userChoiceQuackOrSh);
-                    while(userChoiceQuackOrSh!=1 && userChoiceQuackOrSh!=0){
+                    
+                    // until we get valid input for bits - 0 or 1 we keep asking
+                    while(userChoiceQuackOrSh!=validBitInputOne && userChoiceQuackOrSh!=validBitInputZero){
                         printf("Invalid number, please try again\n");
                         scanf(" %d", &userChoiceQuackOrSh);
                     }
+
+                    // shift the user's choice (1) to the i position.
+                    // using OR (|) to turn on this specific bit without 
+                    // overwriting bits set in previous iterations
                     if(userChoiceQuackOrSh){
                         taskTwoBitsNum|=(unsigned long long)userChoiceQuackOrSh<<i;
                     }
                 }
-                                
+
                 // printing the quack/shout choices
                 for(int i=0; i<taskTwoDucksNum; i++){
                     
                     // checking if the last bit is 1 or 0 using &
-                    isQuackBit = (taskTwoBitsNum >> i) & 1;
+                    isQuackBit = (taskTwoBitsNum >> i) & bitMaskForLastBit;
                     
                     // printing according to the extracted bit
                     if(isQuackBit){
+                        // adding 1 to i for start counting ducks from 1 instead of 0
                         printf("duck number %d do Quak\n", i+1);
                     }
                     else{
+                        // adding 1 to i for start counting ducks from 1 instead of 0
                         printf("duck number %d do Sh...\n", i+1);
                     }
                 }
@@ -135,6 +150,7 @@ int main()
             case 3:
 
                 // resetting for future use
+                // we use 1 for multiplication identity
                 taskThreeResultNum=1;
 
                 printf("please enter the number\n");
@@ -177,6 +193,7 @@ int main()
                 
                 // until we have more ducks than the max in a row
                 while (taskFourDucksNum > taskFourMaxDucksInARow){
+                    
                     // print a full row (10 ducks) heades
                     for(int i=0; i<taskFourMaxDucksInARow; i++){
                         printf("   _\t\t");
@@ -237,8 +254,9 @@ int main()
                 // counting how many digits in the input number
                 // and saving it in taskFiveHowManyDigitInTheInput
                 while(taskFiveHelpVarForSavingInput>0){
+                   
                     // counting one more digit
-                    taskFiveHowManyDigitInTheInput+=1;
+                    taskFiveHowManyDigitInTheInput++;
 
                     // cutting the last digit
                     taskFiveHelpVarForSavingInput= taskFiveHelpVarForSavingInput/decimalBase;
@@ -275,6 +293,7 @@ int main()
                     taskFiveHelpVarForSavingInput=taskFiveInputNum;
                 }
                 break;
+            
             // TASK 6: EXIT
             case 6:
                 printf("Good night! See you at the pond tomorrow.");
@@ -288,7 +307,7 @@ int main()
     }
     while (
         // condition to continue looping until user choose exsit (6)
-        userChoice != 6
+        userChoice != exsitInput
     );
     return 0;
 }
